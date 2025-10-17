@@ -1,10 +1,12 @@
+import styles from "./Forms.module.css";
+
 function Forms() {
     return (
         <>
-            <form action={"/enviar"} method="post">
-                <label htmlFor="nome">📝 Nome do Pokémon</label>
+            <form className={styles.forms} action={"/enviar"} method="post" >
+                <label htmlFor="nome">Nome do Pokémon</label>
                 <input id="nome" />
-                <label htmlFor="tipo">🎲 Tipo</label>
+                <label htmlFor="tipo">Tipo</label>
                 <select
                     id="tipo"
                     name="tipo"
@@ -17,9 +19,9 @@ function Forms() {
                     <option value="5">🧠 psíquico</option>
                     <option value="6">🪨 pedra</option>
                 </select>
-                <label htmlFor="descricao">📄 Descrição</label>
+                <label htmlFor="descricao">Descrição</label>
                 <textarea></textarea>
-                <label htmlFor="poder">💪 Poder</label>
+                <label htmlFor="poder">Poder</label>
                 <input type="number" placeholder="8" min="0" max="100" />
                 <button type="submit">Cadastrar Pokémon</button>
             </form>
