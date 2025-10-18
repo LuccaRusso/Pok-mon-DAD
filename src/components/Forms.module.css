@@ -11,6 +11,7 @@
   gap: 10px;
   color: #333;
   margin: 100px auto;
+  margin-bottom: 0px;
 }
 
 .forms label {
@@ -31,19 +32,6 @@
   color: #272727;
 }
 
-.forms input::placeholder,
-.forms textarea::placeholder {
-  color: #777;
-}
-
-.forms input:focus,
-.forms select:focus,
-.forms textarea:focus {
-  border-color: #fcb72f;
-  box-shadow: 0 0 10px #d99c22;
-  background: #fffbea;
-}
-
 .forms textarea {
   resize: none;
   height: 80px;
@@ -60,11 +48,26 @@
   cursor: pointer;
   transition: 0.3s ease;
   margin-top: 15px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .forms button:hover {
   background: linear-gradient(90deg, #e60000, #ffb700);
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(255, 99, 99, 0.4);
+}
+
+.mensagemSucesso {
+  color: green;
+  text-align: center;
+}
+
+.mensagemErro {
+  color: red;
+}
+
+.mensagemSucesso, .mensagemErro {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 50px;
+  text-align: center;
 }

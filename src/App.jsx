@@ -1,11 +1,7 @@
-import Forms from './components/Forms'
+import Forms from './components/Forms';
 
 function App() {
-  return (
-    <>
-      <Forms></Forms>
-    </>
-  )
+  return <Forms />;
 }
 
-export default App
+export default App;
