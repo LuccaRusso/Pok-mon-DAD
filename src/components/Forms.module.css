@@ -11,7 +11,7 @@
   gap: 10px;
   color: #333;
   margin: 100px auto;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
 .forms label {
@@ -32,19 +32,6 @@
   color: #272727;
 }
 
-.forms input::placeholder,
-.forms textarea::placeholder {
-  color: #777;
-}
-
-.forms input:focus,
-.forms select:focus,
-.forms textarea:focus {
-  border-color: #fcb72f;
-  box-shadow: 0 0 10px #d99c22;
-  background: #fffbea;
-}
-
 .forms textarea {
   resize: none;
   height: 80px;
@@ -61,7 +48,6 @@
   cursor: pointer;
   transition: 0.3s ease;
   margin-top: 15px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .forms button:hover {
@@ -72,18 +58,16 @@
 
 .mensagemSucesso {
   color: green;
-  margin-left: 180px;
+  text-align: center;
 }
 
 .mensagemErro {
   color: red;
-  margin-left: 160px;
 }
 
-.mensagemErro, .mensagemSucesso{
+.mensagemSucesso, .mensagemErro {
   font-weight: bold;
-  margin-top: 10px;
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 50px;
+  text-align: center;
 }
-
