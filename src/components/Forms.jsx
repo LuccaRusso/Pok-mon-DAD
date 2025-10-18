@@ -1,11 +1,36 @@
 import styles from "./Forms.module.css";
+import { useState } from "react";
 
 function Forms() {
+
+    const [mensagem, setMensagem] = useState(null);
+    const [tipoMensagem, setTipoMensagem] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); //não envia as informações do forms
+    
+        const form = e.target;
+        const nome = form.nome.value.trim();
+        const tipo = form.tipo.value;
+        const descricao = form.descricao.value.trim();
+        const poder = form.poder.value;
+    
+        if (!nome || !tipo || !descricao || !poder) {
+            setTipoMensagem("erro");
+            setMensagem("Preencha todos os campos!");
+          } else {
+            setTipoMensagem("sucesso");
+            setMensagem("Pokémon cadastrado!");
+            form.reset();
+          }
+      };
+
     return (
         <>
-            <form className={styles.forms} action={"/enviar"} method="post" >
+            <form className={styles.forms} onSubmit={handleSubmit} method="post" >
                 <label htmlFor="nome">Nome do Pokémon</label>
-                <input id="nome" />
+                <input id="nome"/>
+
                 <label htmlFor="tipo">Tipo</label>
                 <select
                     id="tipo"
@@ -19,12 +44,22 @@ function Forms() {
                     <option value="5">🧠 psíquico</option>
                     <option value="6">🪨 pedra</option>
                 </select>
+
                 <label htmlFor="descricao">Descrição</label>
-                <textarea></textarea>
+                <textarea name="descricao"></textarea>
+
                 <label htmlFor="poder">Poder</label>
-                <input type="number" placeholder="8" min="0" max="100" />
+                <input type="number" name="poder" placeholder="8" min="0" max="100"/>
+
                 <button type="submit">Cadastrar Pokémon</button>
             </form>
+
+            {mensagem && (
+                <p className={
+                    tipoMensagem === "erro" ? styles.mensagemErro : styles.mensagemSucesso}>
+                {mensagem}
+                </p>
+            )}
         </>
     )
 }
