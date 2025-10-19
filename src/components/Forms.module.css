@@ -65,9 +65,60 @@
   color: red;
 }
 
-.mensagemSucesso, .mensagemErro {
+.mensagemSucesso,
+.mensagemErro {
   font-weight: bold;
   font-size: 20px;
   margin-top: 50px;
   text-align: center;
+}
+
+.lista {
+  width: 720px;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #fff, #ffe7b8);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.lista h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #222;
+  font-weight: 700;
+}
+
+.lista ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.item {
+  background: #fffdf5;
+  border: 2px solid #fcb72f;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.item strong {
+  font-size: 18px;
+  color: #f13d3d;
+}
+
+.item em {
+  font-style: normal;
+  font-weight: 600;
+  color: #555;
 }
