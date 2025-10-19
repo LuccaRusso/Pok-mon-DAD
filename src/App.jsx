@@ -6,7 +6,6 @@ function App() {
     <>
       <div className='title-container'>
         <img src={pikachu} alt="Pikachu" />
-
         <h1 className='titulo'>Cadastro de Pokémon</h1>
       </div>
       <Forms />
