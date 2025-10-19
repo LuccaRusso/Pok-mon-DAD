@@ -1,4 +1,4 @@
-import Forms from './components/Forms'
+import Forms from './components/Forms';
 
 function App() {
   return (
@@ -8,4 +8,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

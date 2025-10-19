@@ -1,94 +1,84 @@
+import styles from "./Forms.module.css";
 import { useState } from "react";
 
 function Forms() {
-    const [nome, setNome] = useState("");
-    const [tipo, setTipo] = useState("");
-    const [descricao, setDescricao] = useState("");
-    const [poder, setPoder] = useState("");
-    const [mensagem, setMensagem] = useState("");
-    const [pokemons, setPokemons] = useState([]);
+    const [mensagem, setMensagem] = useState(null);
+    const [tipoMensagem, setTipoMensagem] = useState("");
+    const [listPokemons, setListPokemons] = useState([]);
 
-    function enviar(event) {
-        event.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        const form = e.target;
+        const nome = form.nome.value.trim();
+        const tipo = form.tipo.value;
+        const descricao = form.descricao.value.trim();
+        const poder = form.poder.value;
 
         if (!nome || !tipo || !descricao || poder === "") {
-            setMensagem("🚨 Preencha todos os campos!");
-            return;
+            setTipoMensagem("erro");
+            setMensagem("Preencha todos os campos!");
+        } else {
+            const novoPokemon = { nome, tipo, descricao, poder };
+            setListPokemons([...listPokemons, novoPokemon]);
+
+            setTipoMensagem("sucesso");
+            setMensagem("Pokémon cadastrado!");
+            form.reset();
         }
-
-        const novoPokemon = { nome, tipo, descricao, poder };
-        setPokemons([...pokemons, novoPokemon]);
-        setMensagem("✅ Pokémon cadastrado!");
-
-        setNome("");
-        setTipo("");
-        setDescricao("");
-        setPoder("");
-    }
+    };
 
     return (
-        <div className="container">
-            <h1>Cadastro de Pokémons</h1>
-            <form onSubmit={enviar} className="formulario">
-                <label htmlFor="nome">📝 Nome do Pokémon</label>
-                <input
-                    id="nome"
-                    value={nome}
-                    onChange={(e) => setNome(e.target.value)}
-                    placeholder="Digite o nome do pokémon"
-                />
+        <div className={styles.container}>
+            <form className={styles.forms} onSubmit={handleSubmit} method="post">
+                <label htmlFor="nome">Nome do Pokémon</label>
+                <input id="nome" name="nome" />
 
-                <label htmlFor="tipo">🎲 Tipo</label>
-                <select
-                    id="tipo"
-                    value={tipo}
-                    onChange={(e) => setTipo(e.target.value)}
-                >
+                <label htmlFor="tipo">Tipo</label>
+                <select id="tipo" name="tipo">
                     <option value="" disabled>Selecione o tipo</option>
-                    <option value="🔥 fogo">🔥 Fogo</option>
-                    <option value="💧 água">💧 Água</option>
-                    <option value="🌱 grama">🌱 Grama</option>
-                    <option value="⚡ elétrico">⚡ Elétrico</option>
-                    <option value="🧠 psíquico">🧠 Psíquico</option>
-                    <option value="🪨 pedra">🪨 Pedra</option>
+                    <option value="🔥 Fogo">🔥 Fogo</option>
+                    <option value="💧 Água">💧 Água</option>
+                    <option value="🌱 Grama">🌱 Grama</option>
+                    <option value="⚡ Elétrico">⚡ Elétrico</option>
+                    <option value="🧠 Psíquico">🧠 Psíquico</option>
+                    <option value="🪨 Pedra">🪨 Pedra</option>
                 </select>
 
-                <label htmlFor="descricao">📄 Descrição</label>
-                <textarea
-                    id="descricao"
-                    value={descricao}
-                    onChange={(e) => setDescricao(e.target.value)}
-                    placeholder="Descreva o Pokémon"
-                />
+                <label htmlFor="descricao">Descrição</label>
+                <textarea name="descricao" id="descricao"></textarea>
 
-                <label htmlFor="poder">💪 Poder</label>
-                <input
-                    id="poder"
-                    type="number"
-                    min="0"
-                    max="100"
-                    placeholder="(0-100)"
-                    value={poder}
-                    onChange={(e) => setPoder(e.target.value)}
-                />
+                <label htmlFor="poder">Poder</label>
+                <input type="number" name="poder" placeholder="8" min="0" max="100" />
 
                 <button type="submit">Cadastrar Pokémon</button>
             </form>
 
-            {mensagem && <p className="mensagem">{mensagem}</p>}
+            {mensagem && (
+                <p className={tipoMensagem === "erro" ? styles.mensagemErro : styles.mensagemSucesso}>
+                    {mensagem}
+                </p>
+            )}
 
-            {pokemons.length > 0 && (
-                <div className="lista-pokemons">
-                    <h2>Pokémons Cadastrados</h2>
+            {/* Lista de Pokémons cadastrados */}
+            <div className={styles.lista}>
+                <h2>Pokémons Cadastrados</h2>
+                {listPokemons.length === 0 ? (
+                    <p>Nenhum Pokémon cadastrado ainda.</p>
+                ) : (
                     <ul>
-                        {pokemons.map((p, index) => (
-                            <li key={index}>
-                                <strong>{p.nome}</strong> - {p.tipo} | 💪 {p.poder} | 📄 {p.descricao}
+                        {listPokemons.map((pokemon, index) => (
+                            <li key={index} className={styles.item}>
+                                <strong>{pokemon.nome}</strong> - {pokemon.tipo}
+                                <br />
+                                <em>Descrição:</em> {pokemon.descricao}
+                                <br />
+                                <em>Poder:</em> {pokemon.poder}/100
                             </li>
                         ))}
                     </ul>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 }
