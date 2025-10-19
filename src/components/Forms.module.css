@@ -1,0 +1,114 @@
+.forms {
+  width: 420px;
+  background: linear-gradient(145deg, #fff, #ffe7b8);
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 50px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #333;
+  margin: 100px auto;
+  margin-bottom: 0px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.forms h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.forms label {
+  font-weight: 600;
+  color: #222;
+  margin-top: 10px;
+}
+
+.forms input,
+.forms select,
+.forms textarea {
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 2px solid #fcb72f;
+  font-size: 15px;
+  transition: 0.3s ease;
+  outline: none;
+  background: #fffdf5;
+  color: #272727;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.forms textarea {
+  resize: none;
+  height: 80px;
+}
+
+.forms button {
+  background: linear-gradient(90deg, #f13d3d, #f1d04e);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.forms button:hover {
+  background: linear-gradient(90deg, #e60000, #ffb700);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 99, 99, 0.4);
+}
+
+.mensagemSucesso {
+  color: green;
+  text-align: center;
+}
+
+.mensagemErro {
+  color: red;
+}
+
+.mensagemSucesso, .mensagemErro {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.lista-pokemons {
+  width: 420px;
+  background: linear-gradient(145deg, #fff, #ffe7b8);
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 50px 100px;
+  color: #333;
+  margin: 50px auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.lista-pokemons h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.lista-pokemons ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-pokemons li {
+  padding: 10px;
+  border-bottom: 1px solid #fcb72f;
+  margin-bottom: 10px;
+}
+
+.lista-pokemons li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
